@@ -86,3 +86,17 @@ button:hover {
   text-align: center;
   color: #888;
 }
+
+.exit-area {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.exit {
+  background: #6b7280;
+}
+
+.exit-message {
+  color: #b45309;
+  font-size: 14px;
+}

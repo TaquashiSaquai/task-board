@@ -22,6 +22,7 @@ export default function App() {
     }
   }, [tasks])
   const [text, setText] = useState('')
+  const [closeFailed, setCloseFailed] = useState(false)
 
   const addTask = (e) => {
     e.preventDefault()
@@ -35,6 +36,12 @@ export default function App() {
     setTasks(tasks.map((t) => (t.id === id ? { ...t, done: !t.done } : t)))
 
   const deleteTask = (id) => setTasks(tasks.filter((t) => t.id !== id))
+
+  // ブラウザの制限で、ユーザーが通常の方法で開いたタブは閉じられないことがある
+  const exitApp = () => {
+    window.close()
+    setTimeout(() => setCloseFailed(true), 300)
+  }
 
   return (
     <main className="app">
@@ -77,6 +84,17 @@ export default function App() {
           ))}
         </ul>
       )}
+
+      <div className="exit-area">
+        <button type="button" className="exit" onClick={exitApp}>
+          終了
+        </button>
+        {closeFailed && (
+          <p className="exit-message">
+            ブラウザの制限でタブを閉じられませんでした。タブを手動で閉じてください。
+          </p>
+        )}
+      </div>
     </main>
   )
 }
