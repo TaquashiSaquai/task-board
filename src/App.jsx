@@ -1,7 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+const STORAGE_KEY = 'task-board:tasks'
+
+const loadTasks = () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY))
+    return Array.isArray(saved) ? saved : []
+  } catch {
+    return []
+  }
+}
 
 export default function App() {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState(loadTasks)
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
+    } catch {
+      // 保存できない環境（容量超過・プライベートモード等）では無視する
+    }
+  }, [tasks])
   const [text, setText] = useState('')
 
   const addTask = (e) => {
