@@ -32,3 +32,9 @@ npm install       # 依存関係のインストール
 npm run dev       # 開発サーバー起動
 npm run build     # 本番ビルド（動作確認に使用）
 ```
+
+## 公開（GitHub Pages）
+
+- 公開URL: https://taquashisaquai.github.io/task-board/
+- `main` へプッシュすると、GitHub Actions（`.github/workflows/deploy.yml`）が自動でビルド・公開する
+- `vite.config.js` の `base` はリポジトリ名（`/task-board/`）に合わせてある。リポジトリ名を変える場合は一緒に変更する
