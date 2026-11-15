@@ -6,7 +6,7 @@
 
 - プロジェクト名: task-board（Samurai Sprint）
 - 内容: タスク管理ボード
-- 技術スタック・ビルド/テスト手順: 決まり次第ここに追記すること
+- 技術スタック: React 18 + Vite（JavaScript）
 
 ## 基本ルール
 
@@ -27,11 +27,8 @@
 
 ## 開発コマンド
 
-（プロジェクトのセットアップ後に追記）
-
 ```bash
-# 例
-# npm install   # 依存関係のインストール
-# npm run dev   # 開発サーバー起動
-# npm test      # テスト実行
+npm install       # 依存関係のインストール
+npm run dev       # 開発サーバー起動
+npm run build     # 本番ビルド（動作確認に使用）
 ```
